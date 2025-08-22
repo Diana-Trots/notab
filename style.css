@@ -37,13 +37,13 @@ body {
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
   color: #fff;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 30px;
-  /* padding: 0 30px;  */
+  padding: 0 15px;
 }
 
 a {
@@ -67,6 +67,10 @@ h5,
 h6 {
   font-family: "Montserrat", sans-serif;
   margin: 0;
+}
+
+h2 {
+  font-size: 50px;
 }
 
 p {
@@ -95,10 +99,6 @@ p {
 
 /* ----------------- MAIN ----------------- */
 
-.main {
-  margin-top: -50px;
-}
-
 /* ----------------- WELCOME ----------------- */
 
 .welcome {
@@ -112,8 +112,8 @@ p {
 .welcome__container::after {
   content: "";
   position: absolute;
-  right: -170px;
-  top: -240px;
+  right: -140px;
+  top: -280px;
   background-image: url("img/bg-welcome.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -125,13 +125,10 @@ p {
 
 .welcome__row {
   display: flex;
+  min-height: 700px;
   align-items: center;
-  justify-content: space-between;
-  padding-right: 43px;
-  margin-bottom: 30px;
-}
 
-.welcome__desc {
+  margin-bottom: 30px;
 }
 
 .welcome__title {
@@ -170,7 +167,10 @@ p {
 }
 
 .welcome__img {
-  width: 450px;
+  width: 600px;
+  position: absolute;
+  top: -140px;
+  right: -20px;
 }
 
 .cta {
@@ -188,13 +188,54 @@ p {
 }
 
 .cta__links {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   gap: 30px;
 }
 
-.cta__link {
+/* ----------------- MISSION ----------------- */
+
+.mission {
+  position: relative;
+  padding: 150px 85px 200px 0;
 }
 
-.cta__img {
+.mission__container {
+}
+
+.mission__img {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: rotate(90deg) translate(-43%);
+  z-index: -1;
+}
+
+.mission__desc {
+  width: 320px;
+  margin-left: auto;
+}
+
+.mission__title {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.mission__title::before {
+  content: "";
+  position: absolute;
+  right: 55px;
+  top: 7px;
+  z-index: -1;
+  filter: blur(50px);
+  background: rgba(241, 1, 191, 1);
+  opacity: 0.7;
+
+  width: 85px;
+  height: 85px;
+}
+
+.mission__text {
 }

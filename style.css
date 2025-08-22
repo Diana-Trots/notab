@@ -39,7 +39,10 @@ body {
   color: #fff;
   overflow-x: hidden;
 }
-
+html,
+body {
+  overflow-x: hidden;
+}
 .container {
   max-width: 1240px;
   margin: 0 auto;
@@ -80,6 +83,7 @@ h2 {
 p {
   margin: 0;
 }
+
 /* ----------------- HEADER ----------------- */
 
 .header__container {
@@ -95,10 +99,20 @@ p {
 }
 
 .header__login {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: underline;
+}
+
+.header__login::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 32px;
+  width: 54px;
+  height: 1px;
+  background-color: #fff;
 }
 
 /* ----------------- MAIN ----------------- */
@@ -124,7 +138,7 @@ p {
   width: 660px;
   height: 790px;
   transform: rotate(-105deg);
-  z-index: -2;
+  z-index: -10;
 }
 
 .welcome__row {
@@ -175,6 +189,7 @@ p {
   position: absolute;
   top: -140px;
   right: -20px;
+  z-index: -5;
 }
 
 .cta {
@@ -366,3 +381,160 @@ p {
 }
 
 /* ----------------- МЕДИА ЗАПРОСЫ ----------------- */
+
+@media (max-width: 940px) {
+  .welcome__img {
+    right: -190px;
+  }
+
+  .cta__text {
+    font-size: 24px;
+  }
+
+  .mission__img {
+    right: 60%;
+  }
+
+  .welcome__cta {
+    padding-right: 0px;
+  }
+  .mission {
+    padding-right: 0px;
+  }
+
+  .common__col,
+  .mission__desc {
+    max-width: 380px;
+  }
+
+  .mission__desc {
+    width: unset;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding-top: 30px;
+  }
+  .header__container {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .welcome__title {
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
+
+  .welcome__text {
+    position: relative;
+    font-size: 18px;
+    width: 45%;
+  }
+
+  .welcome__row {
+    margin-bottom: -80px;
+  }
+
+  .welcome {
+    margin-top: -80px;
+  }
+
+  .welcome__img {
+    width: 400px;
+    top: 20px;
+    right: -170px;
+  }
+
+  .cta {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .footer__cta .cta__img {
+    height: 60px;
+  }
+
+  .footer__cta .cta__links {
+    gap: 24px;
+  }
+
+  .welcome__container::after {
+    background-image: url(img/bg-welcome-mobile.svg);
+    filter: blur(125px);
+    width: 700px;
+    height: 826px;
+    transform: rotate(0deg);
+    right: -140px;
+    top: -75px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo__image,
+  .logo__image {
+    width: 50px;
+  }
+
+  .logo {
+    gap: 3px;
+  }
+
+  .header__login img {
+    display: none;
+  }
+
+  .header__login::after {
+    left: -4px;
+    bottom: -7px;
+  }
+
+  .welcome {
+    margin-top: -100px;
+  }
+
+  .welcome__row {
+    margin-bottom: -100px;
+  }
+
+  .welcome__title {
+    margin-bottom: 24px;
+    font-size: 35px;
+    width: 70%;
+  }
+
+  .welcome__text {
+    font-size: 16px;
+    padding-left: 0px;
+    width: 60%;
+  }
+
+  .welcome__text::before,
+  .welcome__text::after {
+    display: none;
+  }
+
+  .welcome__img {
+    width: 350px;
+    right: -135px;
+    top: 80px;
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome {
+    margin-top: -140px;
+  }
+
+  .cta__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .welcome__img {
+    width: 300px;
+    right: -125px;
+    top: 125px;
+  }
+}

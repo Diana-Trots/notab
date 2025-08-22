@@ -180,6 +180,7 @@ p {
 .cta {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .welcome__cta {
   padding-right: 80px;
@@ -195,7 +196,6 @@ p {
   position: relative;
   z-index: 1;
   display: flex;
-  justify-content: space-between;
   gap: 30px;
 }
 
@@ -294,5 +294,75 @@ p {
   margin-bottom: 20px;
 }
 
-.commont__text {
+/* ----------------- FOOTER ----------------- */
+
+.footer {
+  padding: 100px 0 50px;
+  overflow: hidden;
 }
+
+.footer .container {
+  position: relative;
+}
+
+.footer .container::before {
+  content: "";
+  position: absolute;
+  left: -170px;
+  bottom: -200px;
+  filter: blur(125px);
+  background: linear-gradient(
+    42deg,
+    rgba(241, 1, 191, 1),
+    rgba(0, 102.0000228881836, 255, 1) 100%
+  );
+  opacity: 0.3;
+  width: 400px;
+  height: 400px;
+  transform: rotate(6deg);
+  z-index: -1;
+}
+
+.footer__cta {
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 125px;
+}
+
+.footer .cta__text {
+  font-size: 24px;
+}
+
+.footer__cta .cta__links {
+  gap: 60px;
+}
+
+.footer__cta .cta__img {
+  height: 80px;
+}
+
+.footer__row {
+  font-family: "Avenir", sans-serif;
+  font-weight: 900;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__logo-link {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.footer__contact {
+  margin-bottom: 15px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ----------------- МЕДИА ЗАПРОСЫ ----------------- */

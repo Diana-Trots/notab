@@ -30,6 +30,9 @@
 font-family: "Montserrat", sans-serif;
 font-family: "Avenir", sans-serif;
  */
+.wrapper {
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -37,12 +40,8 @@ body {
   font-family: "Noto Sans", sans-serif;
   font-size: 18px;
   color: #fff;
-  overflow-x: hidden;
 }
-html,
-body {
-  overflow-x: hidden;
-}
+
 .container {
   max-width: 1240px;
   margin: 0 auto;
@@ -87,9 +86,11 @@ p {
 /* ----------------- HEADER ----------------- */
 
 .header__container {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 108px;
+  z-index: 10;
 }
 
 .logo {
@@ -145,7 +146,6 @@ p {
   display: flex;
   min-height: 700px;
   align-items: center;
-
   margin-bottom: 30px;
 }
 
@@ -166,18 +166,28 @@ p {
   content: "";
   position: absolute;
   left: 15px;
-  bottom: 50%;
+  top: -85px;
   filter: blur(50px);
   background: rgba(96, 92, 234, 0.5);
   width: 125px;
   height: 125px;
+  animation: lighter 2s infinite alternate;
+}
+
+@keyframes lighter {
+  0% {
+    background: rgba(96, 92, 234, 0.3);
+  }
+  100% {
+    background: rgba(96, 92, 234, 0.7);
+  }
 }
 
 .welcome__text::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 55px;
+  top: 20px;
   width: 120px;
   height: 4px;
   background-color: #fff;
@@ -218,10 +228,11 @@ p {
 
 .mission {
   position: relative;
-  padding: 150px 85px 200px 0;
+  padding: 150px 0px 200px 0;
 }
 
 .mission__container {
+  padding-right: 85px;
 }
 
 .mission__img {
@@ -384,15 +395,19 @@ p {
 
 @media (max-width: 940px) {
   .welcome__img {
-    right: -190px;
+    right: -110px;
   }
 
   .cta__text {
     font-size: 24px;
   }
 
+  .mission__container {
+    padding-right: 35px;
+  }
+
   .mission__img {
-    right: 60%;
+    right: 63%;
   }
 
   .welcome__cta {
@@ -413,6 +428,10 @@ p {
 }
 
 @media (max-width: 767px) {
+  h2 {
+    font-size: 35px;
+  }
+
   .header {
     padding-top: 30px;
   }
@@ -443,7 +462,7 @@ p {
   .welcome__img {
     width: 400px;
     top: 20px;
-    right: -170px;
+    right: -150px;
   }
 
   .cta {
@@ -468,9 +487,132 @@ p {
     right: -140px;
     top: -75px;
   }
+
+  .mission {
+    padding: 50px 0px 0px 0;
+  }
+
+  .mission__container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .mission__img {
+    position: static;
+    transform: none;
+    margin-top: -40px;
+    width: 500px;
+    align-self: center;
+  }
+
+  .mission__desc {
+    margin-left: 0;
+  }
+
+  .mission__container {
+    padding-right: 15px;
+  }
+
+  .mission__title::before {
+    left: -15px;
+    top: -15px;
+  }
+
+  .common__col,
+  .mission__desc {
+    max-width: unset;
+  }
+
+  .common__container {
+    flex-direction: column-reverse;
+    gap: 70px;
+  }
+  .common--reverse .common__container {
+    flex-direction: column-reverse;
+  }
+
+  .common {
+    margin-top: unset;
+    padding: 0px 0;
+  }
+
+  .common + .common {
+    margin-top: 70px;
+  }
+
+  .common__img {
+    align-self: center;
+    width: 285px;
+  }
+
+  .scanner {
+    background: none;
+  }
+
+  .scanner::before {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 1) 7%,
+        rgba(0, 0, 0, 0.67) 18%,
+        rgba(0, 0, 0, 0) 55%,
+        rgba(0, 0, 0, 1) 80%
+      ),
+      url(img/bg-scanner.jpg);
+  }
+
+  .code {
+    background: none;
+  }
+
+  .code::before {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 1) 7%,
+        rgba(0, 0, 0, 0.67) 18%,
+        rgba(0, 0, 0, 0) 55%,
+        rgba(0, 0, 0, 1) 80%
+      ),
+      url(img/bg-code.jpg);
+  }
+
+  .common::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: -80px;
+  }
+
+  .footer {
+    padding: 80px 0 35px;
+  }
+
+  .footer__cta {
+    gap: 45px;
+    margin-bottom: 60px;
+  }
+
+  .footer__row {
+    flex-direction: column-reverse;
+    gap: 60px;
+    text-align: center;
+  }
+  .footer__contact {
+    margin-bottom: 9px;
+  }
 }
 
 @media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
   .logo__image,
   .logo__image {
     width: 50px;
@@ -494,7 +636,7 @@ p {
   }
 
   .welcome__row {
-    margin-bottom: -100px;
+    margin-bottom: -140px;
   }
 
   .welcome__title {
@@ -519,6 +661,11 @@ p {
     right: -135px;
     top: 80px;
   }
+
+  .mission__img {
+    margin-top: -10px;
+    width: 340px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -533,8 +680,8 @@ p {
   }
 
   .welcome__img {
-    width: 300px;
+    width: 270px;
     right: -125px;
-    top: 125px;
+    top: 140px;
   }
 }
